@@ -5,10 +5,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Biblioteca.Models;
+using Biblioteca123.Models;
 using Microsoft.AspNetCore.Http;
 
-namespace Biblioteca.Controllers
+namespace Biblioteca123.Controllers
 {
     public class HomeController : Controller
     {
@@ -31,17 +31,18 @@ namespace Biblioteca.Controllers
         }
 
         [HttpPost]
-        public IActionResult Login(string login, string senha)
+        public IActionResult Login(string Login, string senha)
         {
-            if(login != "admin" || senha != "123")
+            if(Autenticacao.verificaLoginSenha(Login, senha, this))
             {
-                ViewData["Erro"] = "Senha inválida";
-                return View();
+              
+                return RedirectToAction("Index");
             }
             else
-            {
-                HttpContext.Session.SetString("user", "admin");
-                return RedirectToAction("Index");
+            {   
+                 ViewData["Erro"] = "Senha inválida";
+              
+                return View();
             }
         }
 

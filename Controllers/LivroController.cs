@@ -1,7 +1,8 @@
-using Biblioteca.Models;
+using Biblioteca123.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Biblioteca.Controllers
+
+namespace Biblioteca123.Controllers
 {
     public class LivroController : Controller
     {
@@ -13,7 +14,9 @@ namespace Biblioteca.Controllers
 
         [HttpPost]
         public IActionResult Cadastro(Livro l)
-        {
+        {  
+            
+
             LivroService livroService = new LivroService();
 
             if(l.Id == 0)
@@ -24,11 +27,11 @@ namespace Biblioteca.Controllers
             {
                 livroService.Atualizar(l);
             }
-
             return RedirectToAction("Listagem");
+           
         }
 
-        public IActionResult Listagem(string tipoFiltro, string filtro)
+        public IActionResult Listagem(string tipoFiltro, string filtro, string itensPorPagina, int NumdaPagina, int PaginaAtual)
         {
             Autenticacao.CheckLogin(this);
             FiltrosLivros objFiltro = null;
@@ -38,6 +41,11 @@ namespace Biblioteca.Controllers
                 objFiltro.Filtro = filtro;
                 objFiltro.TipoFiltro = tipoFiltro;
             }
+            
+            ViewData["livrosPorPagina"] = (string.IsNullOrEmpty(itensPorPagina) ? 10 : int.Parse(itensPorPagina));
+            ViewData["PaginaAtual"] = (PaginaAtual != 0 ? PaginaAtual : 1);
+            
+
             LivroService livroService = new LivroService();
             return View(livroService.ListarTodos(objFiltro));
         }

@@ -4,16 +4,23 @@
         <input type="hidden" asp-for="Id" />
         <div class="form-group">
             <label asp-for="Titulo">Titulo</label>
-            <input asp-for="Titulo" class="form-control" required/>
+            <input asp-for="Titulo" class="form-control" id="Titulo" required/>
         </div>
         <div class="form-group">
             <label asp-for="Autor">Autor</label>
-            <input asp-for="Autor" class="form-control required"/>
+            <input asp-for="Autor" class="form-control" id="Autor" required/>
         </div>
         <div>
             <label asp-for="Ano">Ano</label>
-            <input asp-for="Ano"  required/>
+            <input asp-for="Ano" class="form-control" id="Ano" required />
         </div>
-        <input type="submit" value="Salvar" class="btn btn-primary"/>
+        
+        <button class="btn btn-primary" >Salvar</button>
     </form>
+   
 </div>
+
+ <p style="text-align: center; color: red;" id="alert">livro com rasura, será cobrado a mais.</p>
+ 
+<script src="site.js"></script>
+

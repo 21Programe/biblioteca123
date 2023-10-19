@@ -2,7 +2,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Collections;
 
-namespace Biblioteca.Models
+namespace Biblioteca123.Models
 {
     public class LivroService
     {
@@ -23,6 +23,7 @@ namespace Biblioteca.Models
                 livro.Autor = l.Autor;
                 livro.Titulo = l.Titulo;
                 livro.Ano = l.Ano;
+
                 bc.SaveChanges();
             }
         }

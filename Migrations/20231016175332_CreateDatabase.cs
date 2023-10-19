@@ -30,8 +30,8 @@ namespace Biblioteca.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Nome = table.Column<string>(nullable: true),
-                    Senha = table.Column<string>(nullable: true),
                     Login = table.Column<string>(nullable: true),
+                    Senha = table.Column<string>(nullable: true),
                     Tipo = table.Column<int>(nullable: false)
                 },
                 constraints: table =>

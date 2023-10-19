@@ -3,22 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Biblioteca.Models
+namespace Biblioteca123.Models
 {
     public class Usuario
     {
-       public static int ADMIN = 0;
-      public static int PADRAO = 1;
-           
-      public int  Id {  get; set;}
+        public static int ADMIN = 0;
+        public static int PADRAO = 1;
 
-      public string Nome {  get; set;}
+        public int Id { get; set;}
 
-      public string Senha  {  get; set;}
+        public string Nome { get; set;}
 
-      public string Login {  get; set;}
+        public string Login { get; set;}
 
-     public int  Tipo {  get; set;}
+        public string Senha { get; set;}
+        
+        public int Tipo {get; set;}
+
 
 
     }
